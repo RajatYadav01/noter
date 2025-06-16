@@ -1,0 +1,60 @@
+services:
+  noter-database:
+    container_name: noter-database
+    image: mongo:latest
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=noter
+      - MONGO_INITDB_ROOT_PASSWORD=1415205
+      - MONGO_INITDB_DATABASE=noter
+    volumes:
+      - db-data:/data/db
+    ports:
+      - "27020:27017"
+    healthcheck:
+      test: ["CMD", "mongosh", "--username", "noter", "--password", "1415205", "--authenticationDatabase", "admin", "--eval", "db.adminCommand('ping')"]
+      interval: 60s
+      timeout: 5s
+      retries: 5
+      start_period: 5s
+    networks:
+      - noter
+
+  noter-backend:
+    container_name: noter-backend
+    build: 
+      context: ./noter-backend
+      dockerfile: Dockerfile
+    image: node-backend:latest
+    environment:
+      - DB_HOST=noter-database:27017
+      - DB_DATABASE=noter?retryWrites=true&writeConcern=majority&authSource=admin
+    depends_on:
+      noter-database:
+        condition: service_healthy
+    volumes:
+      - backend-data:/app/noter-backend/data
+    ports:
+      - "3050:3050"
+    networks:
+      - noter
+
+  noter-frontend:
+    container_name: noter-frontend
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    image: react-frontend:latest
+    depends_on:
+      - noter-backend
+    ports:
+      - "5173:80"
+    networks:
+      - noter
+
+volumes:
+  db-data:
+  backend-data:
+
+networks:
+  noter:
+    driver: bridge
