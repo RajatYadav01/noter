@@ -13,7 +13,7 @@ import "./App.css";
 
 const App = () => {
   return (
-    <BrowserRouter basename={import.meta.env.PUBLIC_URL}>
+    <BrowserRouter basename={import.meta.env.VITE_BASE_URL}>
       <AuthContextProvider>
         <Routes>
           <Route
