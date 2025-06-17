@@ -1,3 +1,4 @@
+require("dotenv").config({ path: [".env", ".env.example"] });
 const { promisify } = require("util");
 const fs = require("fs");
 const unlinkAsync = promisify(fs.unlink);
@@ -276,14 +277,14 @@ const deleteImage = async (request, response) => {
 
     if (note.images.length !== 0)
       note.images.forEach(async (imagePath) => {
-        if (imagePath === image.split("http://localhost:3050/", 2)[1])
+        if (imagePath === image.split(process.env.BACKEND_HOST_URL, 2)[1])
           await unlinkAsync(imagePath);
       });
 
     let updatedNote = await Note.findOneAndUpdate(
       { _id: id },
       {
-        $pull: { images: image.split("http://localhost:3050/", 2)[1] },
+        $pull: { images: image.split(process.env.BACKEND_HOST_URL, 2)[1] },
         $inc: { imageCount: -1 },
         updatedAt: Date.now(),
       },
