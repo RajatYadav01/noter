@@ -45,7 +45,7 @@ Then, the user can log in by entering the following details:
 - **Email address**
 - **Password**
 
-- The **Home** page displays all the notes created by the user which are stored in the MongoDB database.
+The **Home** page displays all the notes created by the user which are stored in the MongoDB database.
 
 **Note Creation**:
 
