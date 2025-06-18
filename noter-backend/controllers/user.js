@@ -56,10 +56,14 @@ const authenticate = async (request, response) => {
       process.env.REFRESH_TOKEN_EXPIRY_TIME
     );
 
+    const isLocalServer = process.env.BACKEND_HOST_URL?.includes("localhost");
+
     response.cookie("token", refreshToken, {
       withCredentials: true,
       httpOnly: true,
       maxAge: 7 * 24 * 60 * 60 * 1000,
+      secure: !isLocalServer,
+      sameSite: isLocalServer ? "Lax" : "None",
     });
 
     return response.status(200).json({
@@ -107,8 +111,8 @@ const refresh = async (request, response) => {
           return response.status(200).json({
             token: accessToken,
             user: {
-                id: user._id, 
-                name: user.name 
+              id: user._id,
+              name: user.name,
             },
           });
         }
@@ -178,8 +182,7 @@ const getUser = async (request, response) => {
     const user = await User.findOne({ _id: id });
     if (!user)
       return response.status(404).json({
-        message:
-          "User not found.",
+        message: "User not found.",
       });
 
     return response.status(200).json({
@@ -201,8 +204,7 @@ const updateUser = async (request, response) => {
     const user = await User.findOne({ _id: id });
     if (!user)
       return response.status(404).json({
-        message:
-          "User not found.",
+        message: "User not found.",
       });
 
     let bcryptPassword;
@@ -213,12 +215,14 @@ const updateUser = async (request, response) => {
     }
 
     const newUserDetails = {
-        name: name,
-        emailAddress: emailAddress,
-        password: bcryptPassword,
-        updatedAt: Date.now(),
-    }
-    Object.keys(newUserDetails).forEach((i) => newUserDetails[i] == "" && delete newUserDetails[i]);
+      name: name,
+      emailAddress: emailAddress,
+      password: bcryptPassword,
+      updatedAt: Date.now(),
+    };
+    Object.keys(newUserDetails).forEach(
+      (i) => newUserDetails[i] == "" && delete newUserDetails[i]
+    );
 
     const updatedUser = await User.findOneAndUpdate(
       { _id: id },
