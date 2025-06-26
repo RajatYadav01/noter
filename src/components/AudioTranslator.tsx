@@ -139,16 +139,16 @@ const AudioTranslator = ({
         const audioURL = URL.createObjectURL(recordedBlob);
         const audio = new Audio(audioURL);
         audio.onloadedmetadata = () => {
-          if (audio && audio.readyState > 0) {
-            if (audio.duration === Infinity || isNaN(Number(audio.duration))) {
-              audio.currentTime = 1e101;
+          if (audio.duration === Infinity) {
+            audio.currentTime = Number.MAX_SAFE_INTEGER;
 
-              audio.ontimeupdate = () => {
-                audio.currentTime = 0;
-                audio.ontimeupdate = null;
-                setRecordingDuration(audio.duration);
-              };
-            }
+            audio.ontimeupdate = () => {
+              audio.ontimeupdate = null;
+              audio.currentTime = 0;
+              setRecordingDuration(audio.duration);
+            };
+          } else {
+            setRecordingDuration(audio.duration);
           }
         };
         audioChunksRef.current = [];
