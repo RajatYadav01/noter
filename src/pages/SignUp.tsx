@@ -373,7 +373,7 @@ const SignUp = () => {
         setLoadingIconState(true);
         const signUpFormData = JSON.stringify(signUpFormState);
         const userSignUp = await signUp(signUpFormData);
-        if (userSignUp === "SignUp successful") {
+        if (userSignUp === "Sign up successful") {
           setSignUpFormState({
             name: "",
             emailAddress: "",
@@ -710,7 +710,6 @@ const SignUp = () => {
         </div>
       </div>
     </div>
-    // </Fragment>
   );
 };
 
