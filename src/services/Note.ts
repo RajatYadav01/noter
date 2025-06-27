@@ -45,10 +45,13 @@ export const getNote = async (noteID: string): Promise<EditNote> => {
   return serverResponse.data.note;
 };
 
-export const getAllNotes = async (): Promise<Note[]> => {
+export const getAllNotes = async (userID: string): Promise<Note[]> => {
   const serverResponse = await axios.get(`${BACKEND_API_URL}/note/get-all`, {
     headers: {
       "Content-Type": "application/json",
+    },
+    params: {
+      id: userID,
     },
     withCredentials: true,
   });

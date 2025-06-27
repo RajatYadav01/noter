@@ -56,7 +56,7 @@ const Home = ({ displayOnlyFavouriteNotes }: HomePropsType) => {
       const fetchNotes = async () => {
         try {
           setLoadingIconState(true);
-          const fetchedNotes = await getAllNotes();
+          const fetchedNotes = await getAllNotes(loginStatusState.userID);
           if (fetchedNotes) setNotes(fetchedNotes);
           else setNotes([]);
         } catch (error: unknown) {
@@ -78,8 +78,8 @@ const Home = ({ displayOnlyFavouriteNotes }: HomePropsType) => {
       setIsNoteUpdated(false);
       setIsNoteDeleted(false);
     } else if (!loginStatusState.userID) {
-        setNotes([]);
-        setFilteredNotes([]);
+      setNotes([]);
+      setFilteredNotes([]);
     }
   }, [loginStatusState.userID, isNoteCreated, isNoteUpdated, isNoteDeleted]);
 

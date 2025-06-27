@@ -111,7 +111,8 @@ const getNote = async (request, response) => {
 
 const getAllNotes = async (request, response) => {
   try {
-    const notes = await Note.find({}).sort({ createdAt: -1 });
+    const { id } = request.query;
+    const notes = await Note.find({ userID: id }).sort({ createdAt: -1 });
     if (notes.length === 0)
       return response.status(204).json({
         message: "No note exists in the database",
