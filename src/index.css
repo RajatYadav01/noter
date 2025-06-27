@@ -35,8 +35,11 @@ blockquote {
   --font-inter: "Inter", "sans-serif";
   --font-lato: "Lato", "sans-serif";
   --font-manrope: "Manrope", "sans-serif";
+  --font-nunito: "Nunito", "sans-serif";
+  --font-montserrat: "Montserrat", "sans-serif";
   --font-poppins: "Poppins", "sans-serif";
   --font-raleway: "Raleway", "sans-serif";
+  --font-roboto: "Roboto", "sans-serif";
 }
 
 /* inter-100 - latin_latin-ext */

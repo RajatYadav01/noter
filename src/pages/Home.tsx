@@ -179,10 +179,10 @@ const Home = ({ displayOnlyFavouriteNotes }: HomePropsType) => {
     <Fragment>
       <div className="p-2 md:p-2 w-full flex flex-row font-lato">
         <LeftSideBar pageType="Home" />
-        <div className="ml-[35%] md:ml-[26%] lg:ml-[21%] xl:ml-[16%] w-[65%] md:w-[74%] lg:w-[84%] flex flex-row">
+        {loginStatusState.userID  && <div className="ml-[35%] md:ml-[26%] lg:ml-[21%] xl:ml-[16%] w-[65%] md:w-[74%] lg:w-[84%] flex flex-row">
           <SearchBar setSearchBarQuery={setSearchQuery} />
           <Sort setNotesSorted={setSort} />
-        </div>
+        </div>}
       </div>
       {homeError && (
         <p
@@ -193,7 +193,12 @@ const Home = ({ displayOnlyFavouriteNotes }: HomePropsType) => {
           {homeError}
         </p>
       )}
-      {loadingIconState ? (
+      {!loginStatusState.userID ? <div className="flex flex-col max-md:mt-10 md:ml-[28%] lg:ml-[21%] xl:ml-[17%] p-2 w-full md:w-[72%] lg:w-[79%] xl:w-[83%] h-full font-roboto font-bold text-[2rem] md:text-[3.25rem] lg:text-[4.5rem] xl:text-[6.5rem] 2xl:text-[8rem]">
+        <h1 className="flex-[0_1_auto] text-[#d5d5d5] text-[1em] text-left">A</h1>
+        <h1 className="flex-[0_1_auto] text-[#d5d5d5] text-[1em] text-left">place</h1>
+        <h1 className="flex-[0_1_auto] text-[#d5d5d5] text-[1em] text-left">for noting</h1>
+        <h1 className="flex-[0_1_auto] text-[#d5d5d5] text-[1em] text-left">what's on your mind</h1>
+      </div> : (loadingIconState ? (
         <div
           role="status"
           className="flex flex-row justify-center items-center w-[100%] h-[100%]"
@@ -259,7 +264,7 @@ const Home = ({ displayOnlyFavouriteNotes }: HomePropsType) => {
             </div>
           )}
         </Fragment>
-      )}
+      ))}
       {isNoteEditModalOpen && (
         <NoteEditModal
           showNoteEditModal={setIsNoteEditModalOpen}
