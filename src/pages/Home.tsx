@@ -77,6 +77,9 @@ const Home = ({ displayOnlyFavouriteNotes }: HomePropsType) => {
       setIsNoteCreated(false);
       setIsNoteUpdated(false);
       setIsNoteDeleted(false);
+    } else if (!loginStatusState.userID) {
+        setNotes([]);
+        setFilteredNotes([]);
     }
   }, [loginStatusState.userID, isNoteCreated, isNoteUpdated, isNoteDeleted]);
 
