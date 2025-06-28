@@ -193,7 +193,7 @@ const Home = ({ displayOnlyFavouriteNotes }: HomePropsType) => {
           {homeError}
         </p>
       )}
-      {!loginStatusState.userID ? <div className="flex flex-col max-md:mt-10 md:ml-[28%] lg:ml-[21%] xl:ml-[17%] p-2 w-full md:w-[72%] lg:w-[79%] xl:w-[83%] h-full font-roboto font-bold text-[2rem] md:text-[3.25rem] lg:text-[4.5rem] xl:text-[6.5rem] 2xl:text-[8rem]">
+      {!loginStatusState.userID ? <div className="flex flex-col max-md:mt-10 md:ml-[28%] lg:ml-[21%] xl:ml-[17%] p-2 w-full md:w-[72%] lg:w-[79%] xl:w-[83%] h-full font-raleway font-bold text-[2rem] md:text-[3.25rem] lg:text-[4.5rem] xl:text-[6.5rem] 2xl:text-[8rem]">
         <h1 className="flex-[0_1_auto] text-[#d5d5d5] text-[1em] text-left">A</h1>
         <h1 className="flex-[0_1_auto] text-[#d5d5d5] text-[1em] text-left">place</h1>
         <h1 className="flex-[0_1_auto] text-[#d5d5d5] text-[1em] text-left">for noting</h1>
