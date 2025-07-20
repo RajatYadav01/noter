@@ -1,7 +1,7 @@
 import axios from "axios";
 import { toast } from "react-toastify";
 import { Fragment, useState, useRef, useEffect } from "react";
-import { Note, deleteNote } from "../services/Note";
+import { deleteNote } from "../services/Note";
 import formatTimestamp from "../utilities/formatTimestamp";
 import isJSONData from "../utilities/isJSONData";
 
@@ -61,7 +61,7 @@ const NoteCard = ({
       try {
         setLoadingIconState(true);
         const noteDelete = note._id && (await deleteNote(note._id));
-        if (noteDelete === "Note successfully deleted") {
+        if (noteDelete === "Note deleted successfully") {
           setNoteCardError("");
           setNoteDeleted(true);
           toast.success("Note has been deleted successfully.");
@@ -138,15 +138,19 @@ const NoteCard = ({
           className="w-8 h-8 rounded-full flex items-center justify-center hover:bg-gray-300"
         >
           {isCopied ? (
-            <i className="bi bi-check-square-fill"></i>
+            <i className="bi bi-check-square-fill" aria-label="Copied"></i>
           ) : (
-            <i className="text-gray-400 bi bi-files"></i>
+            <i
+              className="text-gray-400 bi bi-files"
+              aria-label="Copy note content"
+            ></i>
           )}
         </button>
         <div className="relative">
           <button
             onClick={toggleMenu}
             className="w-8 h-8 rounded-full flex items-center justify-center hover:bg-gray-300"
+            aria-label="Note options menu"
           >
             <i className="text-gray-400 bi bi-three-dots"></i>
           </button>

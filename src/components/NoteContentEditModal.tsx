@@ -261,7 +261,7 @@ const NoteContentEditModal = ({
           <div className="basis-1/6 flex justify-between">
             <button
               onClick={handleCopy}
-              className="ml-2 w-8 h-8 rounded-full inline-flex items-center justify-center hover:bg-gray-200"
+              className="ml-2 w-8 h-8 rounded-full inline-flex items-center justify-center hover:bg-gray-200" aria-label="Copy note content"
             >
               <i className="bi bi-files"></i>
             </button>
@@ -289,73 +289,73 @@ const NoteContentEditModal = ({
           <div className="mx-auto my-4 p-2 w-fit border border-gray-100 rounded-lg flex justify-center space-x-2 shadow-[8px_-10px_10px_-5px_rgba(0,_0,_0,_0.1),-8px_10px_10px_-5px_rgba(0,_0,_0,_0.1)]">
             <button
               onClick={() => toggleMark(editor, "bold")}
-              className="mr-0 w-6.5 md:w-10 h-6.5 md:h-10 border-r border-gray-100 flex items-center justify-center hover:bg-gray-200"
+              className="mr-0 w-6.5 md:w-10 h-6.5 md:h-10 border-r border-gray-100 flex items-center justify-center hover:bg-gray-200" aria-label="Bold"
             >
               <i className="bi bi-type-bold"></i>
             </button>
             <button
               onClick={() => toggleMark(editor, "italic")}
-              className="mr-0 w-6.5 md:w-10 h-6.5 md:h-10 border-r border-gray-100 flex items-center justify-center hover:bg-gray-200"
+              className="mr-0 w-6.5 md:w-10 h-6.5 md:h-10 border-r border-gray-100 flex items-center justify-center hover:bg-gray-200" aria-label="Italic"
             >
               <i className="bi bi-type-italic"></i>
             </button>
             <button
               onClick={() => toggleMark(editor, "underline")}
-              className="mr-0 w-6.5 md:w-10 h-6.5 md:h-10 border-r border-gray-100 flex items-center justify-center hover:bg-gray-200"
+              className="mr-0 w-6.5 md:w-10 h-6.5 md:h-10 border-r border-gray-100 flex items-center justify-center hover:bg-gray-200" aria-label="Underline"
             >
               <i className="bi bi-type-underline"></i>
             </button>
             <button
               onClick={() => toggleMark(editor, "strikethrough")}
-              className="mr-0 w-6.5 md:w-10 h-6.5 md:h-10 border-r border-gray-100 flex items-center justify-center hover:bg-gray-200"
+              className="mr-0 w-6.5 md:w-10 h-6.5 md:h-10 border-r border-gray-100 flex items-center justify-center hover:bg-gray-200" aria-label="Strikethrough"
             >
               <i className="bi bi-type-strikethrough"></i>
             </button>
             <button
               onClick={() => toggleMark(editor, "code")}
-              className="mr-0 w-6.5 md:w-10 h-6.5 md:h-10 border-r border-gray-100 flex items-center justify-center hover:bg-gray-200"
+              className="mr-0 w-6.5 md:w-10 h-6.5 md:h-10 border-r border-gray-100 flex items-center justify-center hover:bg-gray-200" aria-label="Code"
             >
               <i className="bi bi-code"></i>
             </button>
             <button
               onClick={() => toggleBlock(editor, "heading-one")}
-              className="mr-0 w-6.5 md:w-10 h-6.5 md:h-10 border-r border-gray-100 flex items-center justify-center hover:bg-gray-200"
+              className="mr-0 w-6.5 md:w-10 h-6.5 md:h-10 border-r border-gray-100 flex items-center justify-center hover:bg-gray-200" aria-label="Heading one"
             >
               <i className="bi bi-type-h1"></i>
             </button>
             <button
               onClick={() => toggleBlock(editor, "heading-two")}
-              className="mr-0 w-6.5 md:w-10 h-6.5 md:h-10 border-r border-gray-100 flex items-center justify-center hover:bg-gray-200"
+              className="mr-0 w-6.5 md:w-10 h-6.5 md:h-10 border-r border-gray-100 flex items-center justify-center hover:bg-gray-200" aria-label="Heading two"
             >
               <i className="bi bi-type-h2"></i>
             </button>
             <button
               onClick={() => toggleBlock(editor, "block-quote")}
-              className="mr-0 w-6.5 md:w-10 h-6.5 md:h-10 border-r border-gray-100 flex items-center justify-center hover:bg-gray-200"
+              className="mr-0 w-6.5 md:w-10 h-6.5 md:h-10 border-r border-gray-100 flex items-center justify-center hover:bg-gray-200" aria-label="Block quote"
             >
               <i className="bi bi-quote"></i>
             </button>
             <button
               onClick={() => toggleBlock(editor, "bulleted-list")}
-              className="mr-0 w-6.5 md:w-10 h-6.5 md:h-10 border-r border-gray-100 flex items-center justify-center hover:bg-gray-200"
+              className="mr-0 w-6.5 md:w-10 h-6.5 md:h-10 border-r border-gray-100 flex items-center justify-center hover:bg-gray-200" aria-label="Bulleted list"
             >
               <i className="bi bi-list-ul"></i>
             </button>
             <button
               onClick={() => toggleBlock(editor, "numbered-list")}
-              className="mr-0 w-6.5 md:w-10 h-6.5 md:h-10 border-r border-gray-100 flex items-center justify-center hover:bg-gray-200"
+              className="mr-0 w-6.5 md:w-10 h-6.5 md:h-10 border-r border-gray-100 flex items-center justify-center hover:bg-gray-200" aria-label="Numbered list"
             >
               <i className="bi bi-list-ol"></i>
             </button>
             <button
               onClick={() => editor.undo()}
-              className="mr-0 w-6.5 md:w-10 h-6.5 md:h-10 border-r border-gray-100 flex items-center justify-center hover:bg-gray-200"
+              className="mr-0 w-6.5 md:w-10 h-6.5 md:h-10 border-r border-gray-100 flex items-center justify-center hover:bg-gray-200" aria-label="Undo"
             >
               <i className="bi bi-arrow-counterclockwise"></i>
             </button>
             <button
               onClick={() => editor.redo()}
-              className="mr-0 w-6.5 md:w-10 h-6.5 md:h-10 border-gray-100 flex items-center justify-center hover:bg-gray-200"
+              className="mr-0 w-6.5 md:w-10 h-6.5 md:h-10 border-gray-100 flex items-center justify-center hover:bg-gray-200" aria-label="Redo"
             >
               <i className="bi bi-arrow-clockwise"></i>
             </button>

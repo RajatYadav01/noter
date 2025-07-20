@@ -63,7 +63,7 @@ function loginStatusReducer(
   }
 }
 
-interface AuthContextType {
+export interface AuthContextType {
   loginStatusState: LoginStatusDetails;
   dispatchLoginStatusState: React.Dispatch<LoginStatusActions>;
   signUp: (signUpFormData: string) => Promise<string>;
@@ -76,9 +76,7 @@ interface AuthContextType {
   isLogOutTimerActive: React.RefObject<boolean>;
 }
 
-export const AuthContext = createContext<AuthContextType>(
-  {} as AuthContextType
-);
+export const AuthContext = createContext<AuthContextType | null>(null);
 
 interface AuthContextProviderProps {
   children: ReactNode;

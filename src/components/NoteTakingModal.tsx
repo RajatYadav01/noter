@@ -1,7 +1,7 @@
 import axios from "axios";
 import { toast } from "react-toastify";
 import React, { useEffect, useRef, useState } from "react";
-import { Note, newNote } from "../services/Note";
+import { newNote } from "../services/Note";
 import useAuthContext from "../hooks/useAuthContext";
 
 interface NoteTakingModalProps {
@@ -246,7 +246,7 @@ const NoteTakingModal = ({
           <div className="mt-3 mx-3 p-2 border border-gray-100 rounded-3xl flex items-center space-x-4 bg-gray-100">
             <button
               onClick={handlePlayPause}
-              className="w-8 h-8 rounded-full flex items-center justify-center bg-black hover:bg-gray-500 text-white"
+              className="w-8 h-8 rounded-full flex items-center justify-center bg-black hover:bg-gray-500 text-white" aria-label="Play and pause button"
             >
               {isPlaying ? (
                 <i className="bi bi-pause-fill"></i>

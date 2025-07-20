@@ -5,7 +5,7 @@ import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
 import ResetPassword from "./pages/ResetPassword";
 import PageNotFound from "./pages/PageNotFound";
-import UserProfileEditModal from "./components/UserProfileEditModal";
+import UserProfileEdit from "./pages/UserProfileEdit";
 import PublicRoutes from "./pages/PublicRoutes";
 import ProtectedRoutes from "./pages/ProtectedRoutes";
 import { AuthContextProvider } from "./context/authContext";
@@ -30,7 +30,7 @@ const App = () => {
               path="/favourites"
               element={<Home displayOnlyFavouriteNotes={true} />}
             />
-            <Route path="/update-profile" element={<UserProfileEditModal />} />
+            <Route path="/update-profile" element={<UserProfileEdit />} />
           </Route>
           <Route path="*" element={<PageNotFound />} />
         </Routes>

@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { getUser, updateUser, deleteUser } from "../services/User";
 import { deleteAllNotes } from "../services/Note";
 import useAuthContext from "../hooks/useAuthContext";
-import LeftSideBar from "./LeftSideBar";
+import LeftSideBar from "../components/LeftSideBar";
 
 interface UserProfileEditForm {
   id: string;
@@ -139,7 +139,7 @@ const inputInstructions = {
     '<i className="bi bi-info-circle-fill"></i> Must match with the password',
 };
 
-const UserProfileEditModal = () => {
+const UserProfileEdit = () => {
   const { loginStatusState, logOut } = useAuthContext();
 
   const [userProfileEditFormState, setUserProfileEditFormState] =
@@ -388,7 +388,8 @@ const UserProfileEditModal = () => {
       if (!passwordRegEx.test(userProfileEditFormState.password)) {
         dispatchErrorMessage({ type: "password", payload: "Invalid password" });
         dispatchPasswordInputStatus({ type: "valid", payload: false });
-      }
+        return false;
+      } else return true;
     };
     const confirmPasswordValidation = () => {
       if (
@@ -403,7 +404,8 @@ const UserProfileEditModal = () => {
           payload: "Confirm password not matching with password",
         });
         dispatchConfirmPasswordInputStatus({ type: "valid", payload: false });
-      }
+        return false;
+      } else return true;
     };
     nameValidation();
     emailAddressValidation();
@@ -485,9 +487,9 @@ const UserProfileEditModal = () => {
       try {
         setLoadingIconState(true);
         const userNotesDelete = await deleteAllNotes(loginStatusState.userID);
-        if (userNotesDelete === "All notes successfully deleted") {
+        if (userNotesDelete === "All notes deleted successfully") {
           const userDelete = await deleteUser(loginStatusState.userID);
-          if (userDelete === "User successfully deleted") {
+          if (userDelete === "User deleted successfully") {
             dispatchErrorMessage({
               type: "updateProfile",
               payload: "",
@@ -518,7 +520,7 @@ const UserProfileEditModal = () => {
 
   return (
     <div className="p-4 w-full h-full flex flex-row font-lato">
-      <LeftSideBar pageType="Reset Password" />
+      <LeftSideBar pageType="Update Profile" />
       <div className="w-full h-full md:ml-[30%] lg:ml-[18%] flex flex-col text-[1.25rem] md:text-[2rem] lg:text-[2.75rem]">
         <h3 className="mx-auto mt-[20%] md:mt-[10%] mb-[1%] w-full h-[9%] text-[#646464] text-center text-[1em] font-lato font-[500]">
           Update profile
@@ -900,4 +902,4 @@ const UserProfileEditModal = () => {
   );
 };
 
-export default UserProfileEditModal;
+export default UserProfileEdit;

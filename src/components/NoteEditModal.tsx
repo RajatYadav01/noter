@@ -3,7 +3,6 @@ import { toast } from "react-toastify";
 import React, { useState, useEffect, useRef } from "react";
 import NoteContentEditModal from "./NoteContentEditModal";
 import {
-  EditNote,
   getNote,
   getAudioRecording,
   updateNote,
@@ -389,6 +388,7 @@ const NoteEditModal = ({
       className={`z-4 fixed inset-0 bg-gray-900/50 flex items-center justify-center p-4 ${
         isFullScreen ? "p-0" : ""
       }`}
+      data-testid="note-edit-modal"
     >
       <div
         className={`bg-white rounded-3xl shadow-lg flex flex-col ${
@@ -408,6 +408,7 @@ const NoteEditModal = ({
           <button
             onClick={toggleFullScreen}
             className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200"
+            aria-label="Toggle fullscreen"
           >
             {isFullScreen ? (
               <i className="bi bi-arrows-angle-contract"></i>
@@ -448,6 +449,7 @@ const NoteEditModal = ({
                 onBlur={handleSaveHeading}
                 className="text-xl font-bold outline-none"
                 autoFocus
+                aria-label="heading"
               />
             ) : (
               <h2 className="text-xl font-bold">{note.heading}</h2>
@@ -455,6 +457,7 @@ const NoteEditModal = ({
             <button
               onClick={() => setIsEditingHeading(true)}
               className="ml-2 w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center hover:bg-gray-200"
+              aria-label="Edit heading"
             >
               <i className="bi bi-pencil-fill"></i>
             </button>
@@ -464,7 +467,7 @@ const NoteEditModal = ({
           <div className="mt-3 mx-3 p-2 border border-gray-100 rounded-3xl flex items-center space-x-4 bg-gray-100 text-[0.8rem] md:text-[1.1rem]">
             <button
               onClick={handlePlayPause}
-              className="w-8 h-8 rounded-full flex items-center justify-center bg-black hover:bg-gray-500 text-white"
+              className="w-8 h-8 rounded-full flex items-center justify-center bg-black hover:bg-gray-500 text-white" aria-label="Play and Pause button"
             >
               {isPlaying ? (
                 <i className="bi bi-pause-fill"></i>

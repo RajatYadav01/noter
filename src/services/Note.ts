@@ -1,26 +1,6 @@
 import axios from "axios";
 import { BACKEND_API_URL } from "../context/authContext";
 
-export interface Note {
-  _id?: string;
-  userID: string;
-  type: "text" | "audio" | "";
-  heading: string;
-  content: string;
-  audioRecording: Blob | null;
-  audioDuration: number | null;
-  images: File[] | null;
-  imageCount: number | null;
-  isFavourite: boolean;
-  createdAt?: string;
-  updatedAt?: string;
-}
-
-export interface EditNote extends Omit<Note, "audioRecording" | "images"> {
-  audioRecording: string | null;
-  images: string[] | null;
-}
-
 export const newNote = async (noteFormData: FormData): Promise<string> => {
   const serverResponse = await axios.post(
     `${BACKEND_API_URL}/note/new`,

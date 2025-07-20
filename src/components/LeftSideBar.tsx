@@ -148,6 +148,7 @@ const LeftSideBar = ({ pageType }: LeftSideBarProps) => {
                   className={`pl-6 text-[0.75em] bi ${
                     isMenuOpen ? "bi-chevron-up" : "bi-chevron-down"
                   }`}
+                  aria-label="User menu toggle"
                 ></i>
                 {isMenuOpen && (
                   <div className="absolute top-[2.25rem] left-[81%] w-[80%] bg-white rounded-lg shadow-lg">
@@ -171,7 +172,7 @@ const LeftSideBar = ({ pageType }: LeftSideBarProps) => {
             </div>
           ) : (
             <Fragment>
-              {pageType !== "Login" && (
+              {pageType !== "Login" &&  (
                 <button
                   type="button"
                   onClick={displayLogInForm}

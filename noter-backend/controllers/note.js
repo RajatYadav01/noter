@@ -334,7 +334,7 @@ const deleteNote = async (request, response) => {
     await Note.findByIdAndDelete(id);
 
     return response.status(200).json({
-      message: "Note successfully deleted",
+      message: "Note deleted successfully",
     });
   } catch (error) {
     console.error(error.message);
@@ -362,7 +362,7 @@ const deleteAllNotes = async (request, response) => {
     await Note.deleteMany({ userID: userID });
 
     return response.status(200).json({
-      message: "All notes successfully deleted",
+      message: "All notes deleted successfully",
     });
   } catch (error) {
     console.error(error.message);

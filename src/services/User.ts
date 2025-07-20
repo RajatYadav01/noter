@@ -1,12 +1,6 @@
 import axios from "axios";
 import { BACKEND_API_URL } from "../context/authContext";
 
-interface User {
-  id: string;
-  name: string;
-  emailAddress: string;
-}
-
 export const getUser = async (userID: string): Promise<User> => {
   const serverResponse = await axios.get(`${BACKEND_API_URL}/user/get`, {
     headers: {

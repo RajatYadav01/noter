@@ -256,7 +256,7 @@ const deleteUser = async (request, response) => {
     await User.findByIdAndDelete(id);
 
     return response.status(200).json({
-      message: "User successfully deleted",
+      message: "User deleted successfully",
     });
   } catch (error) {
     console.error(error.message);

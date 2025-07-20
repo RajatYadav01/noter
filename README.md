@@ -23,7 +23,7 @@ This is a Note-taking web application which takes both text and audio as an inpu
 
 - The audio input is transcribed to text using the **Browser Web Speech API**.
 - Form handling is done with proper **validation** both at the client and server side.
-- **JSON Web Token (JWT)** is used for serverless authentication. A token is issued to the user during the log in process and after the token expires the user is logged out automatically.
+- An **HttpOnly cookie** is used for secure authentication. The cookie is set by the server during the login process and automatically sent with each subsequent request. Once the session expires, the cookie becomes invalid and the user is logged out automatically.
 - User can sort the created notes in chronological or reverse chronological order using the **Sort** button based on the creation timestamp of the notes.
 - Proper **pagination** is provided for viewing all the notes.
 - User can type anything in the **Search bar** to search notes across all the notes by typing the title and the content of the note which updates the page view with the note search results in real-time.
@@ -100,29 +100,35 @@ To modify and use this project locally on your system, follow these steps:
 
 4) Rename the `.env.example` file as `.env` in the main project folder to use the environment variables in the React application.
 
-5) Open the backend folder of the project either in a different instance of the code editor or in a different instance of the CLI that you are using.
+5) To run the tests using Vitest and MSW for the React application.
 
-6) Install all the dependencies using npm in the backend folder.
+   ```shell
+   npm run test
+   ```
+
+6) Open the backend folder of the project either in a different instance of the code editor or in a different instance of the CLI that you are using.
+
+7) Install all the dependencies using npm in the backend folder.
 
    ```shell
    npm install
    ```
 
-7) Create a `user` with `password` and a `database` using the created `user` as owner in the MongoDB database since those are required to connect to the database. For this, you can either use the default values from the `env.example` file or use different values after updating them in the `env.example` file. Also, values of other variables can also be updated in the `env.example` file based on your preference.
+8) Create a `user` with `password` and a `database` using the created `user` as owner in the MongoDB database since those are required to connect to the database. For this, you can either use the default values from the `env.example` file or use different values after updating them in the `env.example` file. Also, values of other variables can also be updated in the `env.example` file based on your preference.
 
-8) Run the Node server in the backend folder.
+9) Run the Node server in the backend folder.
 
    ```shell
    npm run server
    ```
 
-9) Go to the main project folder which is already open in other instance of the code editor and run the React application.
+10) Go to the main project folder which is already open in other instance of the code editor and run the React application.
 
    ```shell
    npm run start
    ```
 
-10) After the React application has started, open any browser and go to `http://localhost:5173` to access the application.<br /><br />
+11) After the React application has started, open any browser and go to `http://localhost:5173` to access the application.<br /><br />
 
 To setup the project using Docker:
 

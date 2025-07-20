@@ -10,7 +10,7 @@ import SearchBar from "../components/SearchBar";
 import Sort from "../components/Sort";
 import AudioTranslator from "../components/AudioTranslator";
 import Pagination from "../components/Pagination";
-import { Note, getAllNotes } from "../services/Note";
+import { getAllNotes } from "../services/Note";
 import useAuthContext from "../hooks/useAuthContext";
 
 interface HomePropsType {
@@ -287,6 +287,7 @@ const Home = ({ displayOnlyFavouriteNotes }: HomePropsType) => {
           type="button"
           className="inline-flex justify-center items-center ml-2 p-1 w-[3rem] h-[3rem] rounded-[50%] bg-gray-100 hover:bg-gray-300 text-center"
           onClick={displayNoteTakingModal}
+          aria-label="Create a new note"
         >
           <i className="bi bi-pencil-fill"></i>
         </button>
