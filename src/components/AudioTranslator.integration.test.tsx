@@ -201,8 +201,8 @@ describe("AudioTranslator component", () => {
   });
 
   test("shows error when Web Speech API is not supported", async () => {
-    delete global.SpeechRecognition;
-    delete global.webkitSpeechRecognition;
+    delete (global as any).SpeechRecognition;
+    delete (global as any).webkitSpeechRecognition;
 
     render(
       <MemoryRouter>
