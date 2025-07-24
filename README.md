@@ -17,7 +17,7 @@
 
 ### Overview
 
-This is a Note-taking web application which takes both text and audio as an input.
+This is a note-taking web application that accepts text, audio, and images as input when creating a note.
 
 ### Key features
 
