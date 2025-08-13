@@ -3,6 +3,7 @@ import parse from "html-react-parser";
 import { Link } from "react-router-dom";
 import { useState, useEffect, useReducer, useRef } from "react";
 import LeftSideBar from "../components/LeftSideBar";
+import Footer from "../components/Footer";
 import useAuthContext from "../hooks/useAuthContext";
 
 interface SignUpFormType {
@@ -709,6 +710,7 @@ const SignUp = () => {
           </Link>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

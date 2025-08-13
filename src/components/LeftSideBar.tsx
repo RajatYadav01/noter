@@ -53,8 +53,8 @@ const LeftSideBar = ({ pageType }: LeftSideBarProps) => {
   return (
     <div
       className={`z-3 fixed p-2 md:p-2 w-[33%] md:w-[25%] lg:w-[20%] xl:w-[15%] ${
-        hamburgerMenuDisplay ? "h-[98%]" : ""
-      } md:h-[96%] flex flex-col border border-[#f0f0f0] rounded-3xl bg-white text-[1rem] md:text-[1.5rem] lg:text-[1.75rem]`}
+        hamburgerMenuDisplay ? "h-[94%]" : ""
+      } md:h-[93%] flex flex-col border border-[#f0f0f0] rounded-3xl bg-white text-[1rem] md:text-[1.5rem] lg:text-[1.75rem]`}
     >
       <div
         className={`md:mb-4 md:p-3 h-[8%] flex ${

@@ -10,6 +10,7 @@ import SearchBar from "../components/SearchBar";
 import Sort from "../components/Sort";
 import AudioTranslator from "../components/AudioTranslator";
 import Pagination from "../components/Pagination";
+import Footer from "../components/Footer";
 import { getAllNotes } from "../services/Note";
 import useAuthContext from "../hooks/useAuthContext";
 
@@ -282,7 +283,7 @@ const Home = ({ displayOnlyFavouriteNotes }: HomePropsType) => {
           setNewNoteCreated={setIsNoteCreated}
         />
       )}
-      <div className="z-2 mt-2 mr-auto ml-auto p-2 fixed bottom-[2%] left-[5%] md:left-[40%] w-[90%] md:w-[40%] h-16 flex flex-row justify-between items-center border border-[#f0f0f0] rounded-4xl shadow-[8px_-10px_10px_-5px_rgba(0,_0,_0,_0.1),-8px_10px_10px_-5px_rgba(0,_0,_0,_0.1)] bg-white">
+      <div className="z-2 mt-2 mr-auto ml-auto p-2 fixed bottom-[6%] left-[5%] md:left-[40%] w-[90%] md:w-[40%] h-16 flex flex-row justify-between items-center border border-[#f0f0f0] rounded-4xl shadow-[8px_-10px_10px_-5px_rgba(0,_0,_0,_0.1),-8px_10px_10px_-5px_rgba(0,_0,_0,_0.1)] bg-white">
         <button
           type="button"
           className="inline-flex justify-center items-center ml-2 p-1 w-[3rem] h-[3rem] rounded-[50%] bg-gray-100 hover:bg-gray-300 text-center"
@@ -296,6 +297,7 @@ const Home = ({ displayOnlyFavouriteNotes }: HomePropsType) => {
           showNoteTakingModal={setIsNoteTakingModalOpen}
         />
       </div>
+      <Footer />
     </Fragment>
   );
 };

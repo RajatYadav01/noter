@@ -4,6 +4,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import React, { useEffect, useReducer, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import LeftSideBar from "../components/LeftSideBar";
+import Footer from "../components/Footer";
 import useAuthContext from "../hooks/useAuthContext";
 
 interface LoginFormType {
@@ -431,6 +432,7 @@ const Login = () => {
           </Link>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

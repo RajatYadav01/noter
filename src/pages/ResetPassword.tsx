@@ -3,6 +3,7 @@ import "react-toastify/dist/ReactToastify.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import React, { useEffect, useReducer, useRef, useState } from "react";
 import LeftSideBar from "../components/LeftSideBar";
+import Footer from "../components/Footer";
 import useAuthContext from "../hooks/useAuthContext";
 
 interface ResetPasswordFormType {
@@ -568,6 +569,7 @@ const ResetPassword = () => {
           </button>
         </form>
       </div>
+      <Footer />
     </div>
   );
 };

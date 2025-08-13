@@ -7,6 +7,7 @@ import { getUser, updateUser, deleteUser } from "../services/User";
 import { deleteAllNotes } from "../services/Note";
 import useAuthContext from "../hooks/useAuthContext";
 import LeftSideBar from "../components/LeftSideBar";
+import Footer from "../components/Footer";
 
 interface UserProfileEditForm {
   id: string;
@@ -898,6 +899,7 @@ const UserProfileEdit = () => {
           </div>
         </div>
       )}
+      <Footer />
     </div>
   );
 };
