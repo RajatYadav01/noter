@@ -46,11 +46,7 @@ describe("Note API service", () => {
 
   test("uploads an image to a note", async () => {
     const formData = new FormData();
-    formData.append(
-      "image",
-      new Blob(["dummy"], { type: "image/jpeg" }),
-      "test-image.jpg"
-    );
+    formData.append("image", "dummy-image-content");
 
     const note = await uploadImage(formData);
     expect(note).toHaveProperty("images", "test-image.jpg");

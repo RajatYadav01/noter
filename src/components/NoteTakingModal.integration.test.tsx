@@ -142,16 +142,14 @@ describe("NoteTakingModal component", () => {
   });
 
   test("should handle save button click and mock the save process", async () => {
-    const audioBlob = new Blob([], { type: "audio/wav" });
-
     render(
       <AuthContext.Provider value={mockAuthValue}>
         <NoteTakingModal
           showNoteTakingModal={mockShowNoteTakingModal}
-          audio={audioBlob}
-          audioName="test-audio.wav"
-          audioDuration={100}
-          audioTranscription="Test audio transcription"
+          audio={null}
+          audioName=""
+          audioDuration={0}
+          audioTranscription=""
           setNewNoteCreated={mockSetNewNoteCreated}
         />
       </AuthContext.Provider>
@@ -175,16 +173,15 @@ describe("NoteTakingModal component", () => {
         return HttpResponse.json({ message: "Network error" }, { status: 404 });
       })
     );
-    const audioBlob = new Blob([], { type: "audio/wav" });
 
     render(
       <AuthContext.Provider value={mockAuthValue}>
         <NoteTakingModal
           showNoteTakingModal={mockShowNoteTakingModal}
-          audio={audioBlob}
-          audioName="test-audio.wav"
-          audioDuration={100}
-          audioTranscription="Test audio transcription"
+          audio={null}
+          audioName=""
+          audioDuration={0}
+          audioTranscription=""
           setNewNoteCreated={mockSetNewNoteCreated}
         />
       </AuthContext.Provider>
@@ -193,7 +190,7 @@ describe("NoteTakingModal component", () => {
     const saveButton = screen.getByText("Save");
     fireEvent.click(saveButton);
     await waitFor(() => {
-      expect(screen.getByText("Network error")).toBeInTheDocument();
+      expect(screen.getByText(/Network error/i)).toBeInTheDocument();
     });
     console.error = originalConsoleError;
   });

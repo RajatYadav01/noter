@@ -124,9 +124,10 @@ export const handlers = [
   ),
 
   http.delete(`${import.meta.env.VITE_BACKEND_API_URL}/user/delete`, () => {
-    return HttpResponse.json({
-      message: "User deleted successfully",
-    });
+    return HttpResponse.json(
+      { message: "User deleted successfully" },
+      { status: 200 }
+    );
   }),
 
   http.post(`${import.meta.env.VITE_BACKEND_API_URL}/note/new`, () => {
