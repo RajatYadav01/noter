@@ -297,7 +297,7 @@ const SignUp = () => {
         });
         dispatchNameInputStatus({ type: "valid", payload: false });
       } else if (!nameRegEx.test(signUpFormState.name)) {
-        dispatchErrorMessage({ type: "name", payload: "Invalid first name." });
+        dispatchErrorMessage({ type: "name", payload: "Invalid name." });
         dispatchNameInputStatus({ type: "valid", payload: false });
       }
     };
