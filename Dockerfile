@@ -18,6 +18,8 @@ COPY public ./public
 COPY eslint.config.js ./
 COPY tsconfig*.json ./
 COPY vite.config.ts ./
+COPY vitest.config.ts ./
+COPY vitest.setup.ts ./
 
 # Build the app for production
 RUN npm run build
